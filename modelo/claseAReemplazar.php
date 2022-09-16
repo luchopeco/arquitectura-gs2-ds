@@ -21,7 +21,7 @@ class ClaseAReemplazar {
     public static function Buscar($id)
     {
         $con  = Database::getInstance();
-        $sql = "select * from [ClaseAReemplazar] where id = :p1";
+        $sql = "select * from [ClaseAReemplazar] where Id = :p1";
         $queryClaseAReemplazar = $con->db->prepare($sql);
         $params = array("p1" => $id);   
         $queryClaseAReemplazar->execute($params);
