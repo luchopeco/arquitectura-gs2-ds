@@ -1,6 +1,7 @@
 <?php
-class ClaseAReemplazar {
-                    
+class ClaseAReemplazar
+{
+
     public static function BuscarTodas()
     {
         $con  = Database::getInstance();
@@ -10,7 +11,7 @@ class ClaseAReemplazar {
         $queryClaseAReemplazar->setFetchMode(PDO::FETCH_CLASS, '[ClaseAReemplazar]');
 
         $claseAReemplazarADevolver = array();
-        
+
         foreach ($queryClaseAReemplazar as $m) {
             $claseAReemplazarADevolver[] = $m;
         }
@@ -23,13 +24,12 @@ class ClaseAReemplazar {
         $con  = Database::getInstance();
         $sql = "select * from [tablaAReemplazar] where Id = :p1";
         $queryClaseAReemplazar = $con->db->prepare($sql);
-        $params = array("p1" => $id);   
+        $params = array("p1" => $id);
         $queryClaseAReemplazar->execute($params);
-        $queryClaseAReemplazar->setFetchMode(PDO::FETCH_CLASS, '[ClaseAReemplazar]');                
+        $queryClaseAReemplazar->setFetchMode(PDO::FETCH_CLASS, '[ClaseAReemplazar]');
         foreach ($queryClaseAReemplazar as $m) {
             return $m;
         }
-        
     }
 
     public function Agregar()
@@ -37,21 +37,20 @@ class ClaseAReemplazar {
         $con  = Database::getInstance();
         $sql = "insert into [tablaAReemplazar] ([propiedad1],[propiedad2]) values (:p1,:p2)";
         $claseAReemplazar = $con->db->prepare($sql);
-        $params = array("p1" => $this->propiedad1, "p2" => $this->propiedad2);     
+        $params = array("p1" => $this->propiedad1, "p2" => $this->propiedad2);
         $claseAReemplazar->execute($params);
     }
 
     public function Modificar()
     {
-       $con = Database::getInstance();
+        $con = Database::getInstance();
         $sql = "UPDATE [tablaAReemplazar]
                     SET
                     [propiedad1] = :p1,
                     [propiedad2] = :p2
                     WHERE Id = :p3";
-        $autor = $con->db->prepare($sql);
-        $params = array("p1" => $this->propiedad1,"p2" => $this->propiedad2,"p3" => $this->Id);
-        $autor->execute($params);
+        $claseAReemplazar = $con->db->prepare($sql);
+        $params = array("p1" => $this->propiedad1, "p2" => $this->propiedad2, "p3" => $this->Id);
+        $claseAReemplazar->execute($params);
     }
-
 }
