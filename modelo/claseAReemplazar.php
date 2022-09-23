@@ -50,7 +50,7 @@ class ClaseAReemplazar {
                     [propiedad2] = :p2
                     WHERE id = :p3";
         $autor = $con->db->prepare($sql);
-        $params = array("p1" => $this->propiedad1,"p2" => $this->propiedad2,"p3" => $this->id);
+        $params = array("p1" => $this->propiedad1,"p2" => $this->propiedad2,"p3" => $this->Id);
         $autor->execute($params);
     }
 
