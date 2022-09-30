@@ -53,4 +53,13 @@ class ClaseAReemplazar
         $params = array("p1" => $this->propiedad1, "p2" => $this->propiedad2, "p3" => $this->Id);
         $claseAReemplazar->execute($params);
     }
+
+    public function Eliminar()
+    {
+        $con = Database::getInstance();
+        $sql = "DELETE FROM [tablaAReemplazar] WHERE Id = :p1";
+        $claseAReemplazar = $con->db->prepare($sql);
+        $params = array("p1" => $this->Id);
+        $claseAReemplazar->execute($params);
+    }
 }
